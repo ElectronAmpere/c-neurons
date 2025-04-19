@@ -17,7 +17,6 @@ int perceptron_single_layer(VectorMatrix_t inputs, VectorMatrix_t weights, float
 
 	/* z = w.x + b */
 	result = vectors_dot_product(inputs, weights) + bias;
-
 	/**
 	 * Activation:
 	 * -------
