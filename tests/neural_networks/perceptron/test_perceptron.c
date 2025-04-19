@@ -1,26 +1,12 @@
-#include <stdio.h>
+#include "test_framework.h"
 #include "perceptron.h"
-
-/**
- * @brief      { function_description }
- *
- * @param[in]  test_name  The test name
- * @param[in]  expected   The expected
- * @param[in]  actual     The actual
- */
-void test_assertion(const char *test_name, int expected, int actual)
-{
-	if (expected == actual){
-		printf("[PASS] %s\n", test_name);
-	} else {
-		printf("[FAIL] %s: Expected %d, but got %d\n", test_name, expected, actual);
-	}
-}
 
 int main()
 {
     int result = 0;
 
+    //Perceptron:
+    //z = w.x + b
     // Test 1: Simple Test
     float x_data1[3]= {0.2, 1.4, 23.3};
     float w_data1[3]= {3.1, 1.33, 5.0};
@@ -53,6 +39,32 @@ int main()
 
     result = perceptron_single_layer(x_vect3, w_vect3, bias);
     test_assertion("Test 3: Zero weights and inputs", 0, result);
+
+    // Test 4: NAND Gate
+    float x_data4[4][2]= {{0.0, 0.0},
+                          {0.0, 1.0},
+                          {1.0, 0.0},
+                          {1.0, 1.0}};
+    float w_data4[2]= {-2.0, -2.0};
+    bias = 3.0;
+
+    INIT_ROW_VECTORMATRIX(x_vect4, x_data4[0]);
+    INIT_COLUMN_VECTORMATRIX(w_vect4, w_data4);
+
+    result = perceptron_single_layer(x_vect4, w_vect4, bias);
+    test_assertion("Test 4: NAND Gate", 1, result);
+
+    x_vect4.data = x_data4[1];
+    result = perceptron_single_layer(x_vect4, w_vect4, bias);
+    test_assertion("Test 4: NAND Gate", 1, result);
+
+    x_vect4.data = x_data4[2];
+    result = perceptron_single_layer(x_vect4, w_vect4, bias);
+    test_assertion("Test 4: NAND Gate", 1, result);
+
+    x_vect4.data = x_data4[3];
+    result = perceptron_single_layer(x_vect4, w_vect4, bias);
+    test_assertion("Test 4: NAND Gate", 0, result);
 
 	return 0;
 }

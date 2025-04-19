@@ -1,9 +1,9 @@
 #include <math.h>
 #include "sigmoid.h"
 
-float sigmoid_activation(float input)
+float sigmoid_function(float input)
 {
-	float result = SIGMOID_INACTIVE;
+	float result = 0.0;
 
 	result = 1 / (1 + exp(-input));
 
