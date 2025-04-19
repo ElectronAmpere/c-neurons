@@ -3,18 +3,18 @@
 # networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c -Ilibai/maths/matrices/vectors -Ilibai/neural_networks/perceptron -Il
 # ibai/maths/logistics -lm
 
-COMPILER 		= clang
-MAKETOOL 		= make
-CFLAGS 	 		= -Wall -Wextra -pedantic -std=c11
-LFLAGS   		= -lm
-INCLUDES 		= -Ilibai/maths/matrices/vectors -Ilibai/neural_networks/perceptron -Ilibai/maths/logistics
-SOURCES  		= main.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c
-OBJECTS	 		= $(SOURCES:.c=.o)
-TARGET   		= main
-TEST_SOURCES 	= tests/neural_networks/perceptron/test_perceptron.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c
-TEST_OBJECTS	= $(TEST_SOURCES:.c=.o)
-TEST_TARGET 	= test
-BUILD_DIRECTORY = build
+COMPILER			= clang
+MAKETOOL			= make
+CFLAGS				= -Wall -Wextra -pedantic -std=c11
+LFLAGS				= -lm
+INCLUDES			= -Ilibai/maths/matrices/vectors -Ilibai/neural_networks/perceptron -Ilibai/maths/logistics
+SOURCES				= main.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c
+OBJECTS				= $(SOURCES:.c=.o)
+TARGET				= main
+TEST_SOURCES		= tests/neural_networks/perceptron/test_perceptron.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c
+TEST_OBJECTS		= $(TEST_SOURCES:.c=.o)
+TEST_TARGET			= test
+BUILD_DIRECTORY		= build
 
 # -------------
 # Make targets
