@@ -1,7 +1,4 @@
 # Makefile (use gcc or clang for linux)
-# clang -o main main.c libai/maths/matrices/vectors/vectors.c libai/neural_
-# networks/perceptron/perceptron.c libai/maths/logistics/sigmoid.c -Ilibai/maths/matrices/vectors -Ilibai/neural_networks/perceptron -Il
-# ibai/maths/logistics -lm
 
 COMPILER			= clang
 MAKETOOL			= make
