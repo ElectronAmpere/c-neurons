@@ -1,12 +1,12 @@
 #include "perceptron.h"
-#include "sigmoid.h"
+#include "relu.h"
 
 
 int perceptron_activation(float input)
 {
 	int result = PERCEPTRON_INACTIVE;
 
-	result = (sigmoid_function(input) >= 0.0) ? PERCEPTRON_ACTIVE : PERCEPTRON_INACTIVE;
+	result = (int)((float)relu_function(input) > 0.0) ? PERCEPTRON_ACTIVE : PERCEPTRON_INACTIVE;
 
 	return (result);
 }

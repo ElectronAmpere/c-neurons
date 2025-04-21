@@ -7,11 +7,11 @@ CFLAGS				= -Wall -Wextra -pedantic -std=c11
 LDFLAGS				= -lm
 DFLAGS				= -g -O0
 INCLUDES			= -Ilibai/maths/matrices/vectors -Ilibai/neural_networks/perceptron -Ilibai/maths/activation
-SOURCES				= main.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/activation/sigmoid.c
+SOURCES				= main.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/activation/relu.c
 OBJECTS				= $(SOURCES:.c=.o)
 TARGET				= main
 TEST_INCLUDES		= -Itests/framework 	
-TEST_SOURCES		= tests/framework/test_framework.c tests/neural_networks/perceptron/test_perceptron.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/activation/sigmoid.c
+TEST_SOURCES		= tests/framework/test_framework.c tests/neural_networks/perceptron/test_perceptron.c libai/maths/matrices/vectors/vectors.c libai/neural_networks/perceptron/perceptron.c libai/maths/activation/relu.c
 TEST_OBJECTS		= $(TEST_SOURCES:.c=.o)
 TEST_TARGET			= test
 DEBUG_TARGET		= debug
@@ -57,7 +57,7 @@ $(DEBUG_TARGET): $(BUILD_DIRECTORY) $(TEST_SOURCES) $(SOURCES)
 	@echo Compiling $(DEBUG_TARGET) ...
 	@$(COMPILER) $(CFLAGS) $(DFLAGS) -o $(BUILD_DIRECTORY)/$(DEBUG_TARGET) $(TEST_SOURCES) $(INCLUDES) $(TEST_INCLUDES) $(LDFLAGS)
 	@echo Compilation Done.
-	@echo Run \"$(MAKETOOL) $(DEBUG_TARGET)_run\" to execute program.
+	@echo Run \"$(DEBUGGER) $(BUILD_DIRECTORY)/$(DEBUG_TARGET)\" to execute program.
 
 $(DEBUG_TARGET)_run: $(BUILD_DIRECTORY)/$(DEBUG_TARGET)
 	@echo Running tests.

@@ -3,7 +3,7 @@
 #include "vectors.h"
 #include "perceptron.h"
 
-int main()
+int main(void)
 {
 
     float input_vect_data[5]= {101.2,200.1, 1224.0, 133.0,103.3};

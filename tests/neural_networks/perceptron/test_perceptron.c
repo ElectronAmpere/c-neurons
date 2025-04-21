@@ -1,7 +1,7 @@
 #include "test_framework.h"
 #include "perceptron.h"
 
-int main()
+int main(void)
 {
     int result = 0;
 
